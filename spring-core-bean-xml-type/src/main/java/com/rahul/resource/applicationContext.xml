@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="acc" class="com.rahul.Account">
+    	<property name="accountNumber" value="7940000"></property>
+    	<property name="ifsc" value="PUNB0"></property>
+    	<property name="branch" value="Campierganj"></property>
+    </bean>
+
+</beans>
