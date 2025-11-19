@@ -1,0 +1,10 @@
+package com.rahul.login.controller;
+
+import org.springframework.web.servlet.ModelAndView;
+
+public class LoginController {
+
+	public ModelAndView login() {
+		
+	}
+}
