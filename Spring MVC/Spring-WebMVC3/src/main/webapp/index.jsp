@@ -1,0 +1,62 @@
+<%@ page import="jakarta.servlet.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4e73df, #1cc88a);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: white;
+            padding: 40px 50px;
+            border-radius: 12px;
+            width: 400px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        h1 {
+            color: #4e73df;
+            margin-bottom: 20px;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #4e73df;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 18px;
+            transition: 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #1cc88a;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Hello Rahul!</h2>
+    <h1>Welcome to Login Page</h1>
+
+    <a href="loginPage">Go to Login</a>
+</div>
+
+</body>
+</html>

@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="F:\Kodewala\Advance Java\Spring MVC\Spring-WebMVC3"/>
 			<item value="F:\Kodewala\Advance Java\Spring MVC\Spring-WebMVC1"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -26,13 +27,16 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="com.rahul.Spring_WenMVC2"/>
 			<item value="com.rahul"/>
+			<item value="com.rahul.Spring_WebMVC3"/>
+			<item value="com.rahul.Spring_WenMVC2"/>
 		</list>
 		<list key="groupId">
 			<item value="com.rahul"/>
 		</list>
 		<list key="artifactId">
+			<item value="Spring-WebMVC4"/>
+			<item value="Spring-WebMVC3"/>
 			<item value="Spring-WenMVC2"/>
 			<item value="Spring-WebMVC1"/>
 			<item value="Spring-Web-MVC1"/>

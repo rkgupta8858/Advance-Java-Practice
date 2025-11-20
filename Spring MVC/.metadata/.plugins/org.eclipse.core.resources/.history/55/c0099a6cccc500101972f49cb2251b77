@@ -1,0 +1,76 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Home Page</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #36b9cc, #4e73df);
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        background: #fff;
+        width: 450px;
+        padding: 40px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        animation: fadeIn 0.8s ease-in-out;
+    }
+
+    h1 {
+        color: #1cc88a;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        color: #4e73df;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        padding: 12px 22px;
+        background-color: #4e73df;
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 17px;
+        display: inline-block;
+        transition: 0.3s;
+        margin-top: 20px;
+    }
+
+    .btn:hover {
+        background-color: #1cc88a;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Login Successful 🎉</h1>
+    <h2>Welcome to Home Page</h2>
+
+    <a class="btn" href="logout">Logout</a>
+    <% System.exit(); %>
+</div>
+
+</body>
+</html>
