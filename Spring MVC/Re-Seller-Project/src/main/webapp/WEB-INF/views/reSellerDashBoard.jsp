@@ -90,12 +90,12 @@
                 Add Product
             </a>
 
-            <a href="updateProduct" class="card">
+            <a href="viewProducts" class="card">
                 <span class="icon">✏️</span>
                 Update Product
             </a>
 
-            <a href="deleteProduct" class="card">
+            <a href="viewProducts" class="card">
                 <span class="icon">🗑️</span>
                 Delete Product
             </a>
