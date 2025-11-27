@@ -1,0 +1,33 @@
+package com.rahul.zepto.order.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.rahul.zepto.order.bean.OrderInfo;
+import com.rahul.zepto.order.controller.OrderController;
+import com.rahul.zepto.order.dao.OrderDAO;
+import com.rahul.zepto.order.entity.Order;
+
+@Service
+public class OrderService {
+
+	private final OrderController orderController;
+
+	@Autowired
+	OrderDAO orderDAO;
+
+	OrderService(OrderController orderController) {
+		this.orderController = orderController;
+	}
+
+	public int createOrder(OrderInfo orderInfo) {
+		Order orderEntity = new Order();
+		orderEntity.setItem(orderInfo.getItem());
+		orderEntity.setQty(orderInfo.getQty());
+		orderEntity.setPrice(orderInfo.getPrice());
+		orderEntity.setAddress(orderInfo.getAddress());
+
+		int orderId = orderDAO.saveOrder(orderEntity);
+		return orderId;
+	}
+}
