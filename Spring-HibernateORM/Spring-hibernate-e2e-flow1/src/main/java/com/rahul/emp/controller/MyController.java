@@ -1,6 +1,7 @@
 package com.rahul.emp.controller;
 
-import org.apache.tomcat.util.log.UserDataHelper.Mode;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,10 +26,7 @@ public class MyController {
 	}
 
 	@PostMapping("addEmpPage")
-
 	public String addEmpData(HttpServletRequest request, Model model) {
-
-//		EmployeeService employeeService = new EmployeeService();
 
 		String name = request.getParameter("empName");
 		String email = request.getParameter("empEmail");
@@ -63,7 +61,9 @@ public class MyController {
 	}
 
 	@RequestMapping("/ViewEmp")
-	public String viewEmployeeController() {
+	public String viewEmployeeController(Model model) {
+		List<Employee> list = employeeService.getAllEmployees();
+		model.addAttribute("list", list);
 		return "viewEmployeePage";
 	}
 }

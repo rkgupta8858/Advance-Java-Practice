@@ -1,5 +1,7 @@
 package com.rahul.emp.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -13,10 +15,7 @@ public class EmployeeDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	
-	
-	
+
 	public int saveEmployee(Employee employee) {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
@@ -25,4 +24,16 @@ public class EmployeeDao {
 		session.close();
 		return id;
 	}
+	
+	public List<Employee> getAllEmployees(){
+		Session session = sessionFactory.openSession();
+		List<Employee> list = session.createQuery("from Employee", Employee.class).list();
+		session.close();
+		return list;
+	}
+	
 }
+
+
+
+
