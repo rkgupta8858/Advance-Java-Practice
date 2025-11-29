@@ -10,15 +10,23 @@ import com.rahul.emp.entity.Employee;
 
 @Service
 public class EmployeeService {
-	
+
 	@Autowired
 	EmployeeDao employeeDao;
-	
+
 	public int addEmployee(Employee employee) {
 		return employeeDao.saveEmployee(employee);
 	}
-	
-	public List<Employee> getAllEmployees(){
+
+	public void updateEmployee(Employee employee) {
+		employeeDao.updateEmployee(employee);
+	}
+
+	public void deleteEmployee(int id) {
+		employeeDao.deleteEmployee(id);
+	}
+
+	public List<Employee> getAllEmployees() {
 		return employeeDao.getAllEmployees();
 	}
 }

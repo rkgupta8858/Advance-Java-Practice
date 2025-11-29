@@ -19,21 +19,38 @@ public class EmployeeDao {
 	public int saveEmployee(Employee employee) {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
-		int id =   (int) session.save(employee);
+		int id = (int) session.save(employee);
 		transaction.commit();
 		session.close();
 		return id;
 	}
-	
-	public List<Employee> getAllEmployees(){
+
+	public void updateEmployee(Employee employee) {
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		session.update(employee);
+		transaction.commit();
+		session.close();
+	}
+
+	public void deleteEmployee(int id) {
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+
+		Employee emp = session.get(Employee.class, id);
+		if (emp != null) {
+			session.delete(emp);
+		}
+
+		tx.commit();
+		session.close();
+	}
+
+	public List<Employee> getAllEmployees() {
 		Session session = sessionFactory.openSession();
 		List<Employee> list = session.createQuery("from Employee", Employee.class).list();
 		session.close();
 		return list;
 	}
-	
+
 }
-
-
-
-
