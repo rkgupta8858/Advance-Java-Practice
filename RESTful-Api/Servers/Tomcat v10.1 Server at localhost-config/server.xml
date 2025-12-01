@@ -142,7 +142,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="RESTful-Api2" path="/RESTful-Api2" reloadable="true" source="org.eclipse.jst.jee.server:RESTful-Api2"/></Host>
+      <Context docBase="RESTful-Api-exception" path="/RESTful-Api-exception" reloadable="true" source="org.eclipse.jst.jee.server:RESTful-Api-exception"/></Host>
     </Engine>
   </Service>
 </Server>
