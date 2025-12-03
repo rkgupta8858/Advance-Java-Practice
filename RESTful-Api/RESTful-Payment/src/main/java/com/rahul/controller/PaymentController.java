@@ -27,7 +27,7 @@ public class PaymentController {
 		paymentTable.setStatus(paymentRequest.getStatus());
 		paymentTable.setDescription(paymentRequest.getDescription());
 
-		paymentService.pay(paymentTable);
-		return ResponseEntity.ok(null);
+		int response = paymentService.pay(paymentTable);
+		return ResponseEntity.ok(response);
 	}
 }
