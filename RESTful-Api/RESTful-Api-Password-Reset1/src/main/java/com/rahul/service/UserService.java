@@ -15,8 +15,8 @@ public class UserService {
 	@Autowired
 	UserDao userDao;
 
-	public String resetPassoword(int userId, String newPassword) {
-		User user = userDao.getUserById(userId);
+	public String resetPassoword(String email, String newPassword) {
+		User user = userDao.getUserByEmail(email);
 
 		if (user == null) {
 			return "User not found";
@@ -28,7 +28,7 @@ public class UserService {
 			return "New password must be different from current password!!!!";
 		}
 
-		List<PasswordHistory> lastPasswords = userDao.getLastThreePasswords(userId);
+		List<PasswordHistory> lastPasswords = userDao.getLastThreePasswordsByEmail(email);
 
 		for (PasswordHistory p : lastPasswords) {
 			if (p.getOldPassword().equals(newPassword)) {
@@ -37,7 +37,7 @@ public class UserService {
 		}
 
 		PasswordHistory history = new PasswordHistory();
-		history.setUserId(userId);
+		history.setEmail(email);
 		history.setOldPassword(user.getPassword());
 		userDao.saveOldPassword(history);
 

@@ -142,7 +142,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="RESTful-Api-Password-Reset" path="/RESTful-Api-Password-Reset" reloadable="true" source="org.eclipse.jst.jee.server:RESTful-Api-Password-Reset"/></Host>
+      <Context docBase="RESTful-Api-Password-Reset1" path="/RESTful-Api-Password-Reset1" reloadable="true" source="org.eclipse.jst.jee.server:RESTful-Api-Password-Reset1"/></Host>
     </Engine>
   </Service>
 </Server>
