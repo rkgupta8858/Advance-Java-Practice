@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.rahul.dao.UserDao;
 import com.rahul.entity.PasswordHistory;
 import com.rahul.entity.User;
+import com.rahul.exception.SamePasswordException;
+import com.rahul.exception.UserNotFoundException;
 
 @Service
 public class UserService {
@@ -19,20 +21,20 @@ public class UserService {
 		User user = userDao.getUserByEmail(email);
 
 		if (user == null) {
-			return "User not found";
+			throw new UserNotFoundException("User Not Found");
 		}
 
 		String currentPassword = user.getPassword();
 
-		if (currentPassword.equals(newPassword)) {
-			return "New password must be different from current password!!!!";
-		}
+//		if (currentPassword.equals(newPassword)) {
+//			throw new SamePasswordException("New password must be different from current password!!!!");
+//		}
 
 		List<PasswordHistory> lastPasswords = userDao.getLastThreePasswordsByEmail(email);
 
 		for (PasswordHistory p : lastPasswords) {
-			if (p.getOldPassword().equals(newPassword)) {
-				return "New password cannot match last 3 old passwords!!!";
+			if (p.getOldPassword().equals(newPassword) || currentPassword.equals(newPassword)) {
+				throw new SamePasswordException("New password cannot match last 3 old passwords!!!!");
 			}
 		}
 

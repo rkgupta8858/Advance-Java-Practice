@@ -41,7 +41,7 @@ public class UserDao {
 		session.close();
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked") 
 	public List<PasswordHistory> getLastThreePasswords(int userId) {
 		Session session = sessionFactory.openSession();
 

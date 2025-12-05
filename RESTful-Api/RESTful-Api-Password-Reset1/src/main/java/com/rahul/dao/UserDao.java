@@ -48,7 +48,7 @@ public class UserDao {
 		Session session = sessionFactory.openSession();
 
 		List<PasswordHistory> list = session.createQuery("from PasswordHistory where email = :email order by id desc")
-				.setParameter("email", email).setMaxResults(3).list();
+				.setParameter("email", email).setMaxResults(2).list();
 
 		session.close();
 		return list;
