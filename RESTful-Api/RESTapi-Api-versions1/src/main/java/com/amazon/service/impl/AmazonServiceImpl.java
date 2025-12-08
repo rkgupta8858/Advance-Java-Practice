@@ -9,6 +9,7 @@ import com.amazon.dao.AmazonDao;
 import com.amazon.entity.Invoice;
 import com.amazon.model.InvoiceResponse;
 import com.amazon.model.InvoiceV1;
+import com.amazon.model.InvoiceV2;
 import com.amazon.service.AmazonService;
 
 @Service
@@ -32,8 +33,36 @@ public class AmazonServiceImpl implements AmazonService {
 		invoice.setTotalPrice(totalPrice);
 		invoice.setCreatedAt(LocalDateTime.now());
 
-		amazonDao.save(invoice);		
-		
+		amazonDao.save(invoice);
+
+		InvoiceResponse response = new InvoiceResponse();
+		response.setInvoiceId(invoice.getId());
+		response.setItemName(invoice.getItemName());
+		response.setDescription(invoice.getDescription());
+		response.setTaxApplied(invoice.getTax());
+		response.setTotalPrice(invoice.getTotalPrice());
+		response.setCreatedAt(invoice.getCreatedAt().toString());
+
+		return response;
+	}
+
+	@Override
+	public InvoiceResponse generateInvoice1(InvoiceV2 v2) {
+
+		double price = v2.getPrice();
+		double tax = price * v2.getTax() / 100;
+		double totalPrice = price + tax;
+
+		Invoice invoice = new Invoice();
+		invoice.setItemName(v2.getItemName());
+		invoice.setDescription(v2.getDescription());
+		invoice.setPrice(price);
+		invoice.setTax("Tax : " + v2.getTax());
+		invoice.setTotalPrice(totalPrice);
+		invoice.setCreatedAt(LocalDateTime.now());
+
+		amazonDao.save(invoice);
+
 		InvoiceResponse response = new InvoiceResponse();
 		response.setInvoiceId(invoice.getId());
 		response.setItemName(invoice.getItemName());
@@ -46,8 +75,3 @@ public class AmazonServiceImpl implements AmazonService {
 	}
 
 }
-
-
-
-
-
