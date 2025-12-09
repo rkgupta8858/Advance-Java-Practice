@@ -1,14 +1,13 @@
-package com.kodewala;
+package com.zepto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBoot1Application {
+public class SpringBoot2Application {
 
 	public static void main(String[] args) {
-		System.out.println("SpringBoot1Application.main()...........");
-		SpringApplication.run(SpringBoot1Application.class, args);
+		SpringApplication.run(SpringBoot2Application.class, args);
 	}
 
 }
