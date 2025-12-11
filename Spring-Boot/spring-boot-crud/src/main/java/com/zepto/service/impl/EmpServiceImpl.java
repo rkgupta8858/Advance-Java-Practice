@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zepto.entity.Employee;
+import com.zepto.exception.EmployeeNotFoundException;
 import com.zepto.repository.EmpRepositpry;
 import com.zepto.request.EmpRequest;
 import com.zepto.service.EmpService;
@@ -30,18 +31,21 @@ public class EmpServiceImpl implements EmpService {
 
 	@Override
 	public void deleteEmp(int id) {
+		Employee emp = repositpry.findById(id)
+				.orElseThrow(() -> new EmployeeNotFoundException("Employee not found with id: " + id));
 		repositpry.deleteById(id);
 
 	}
 
 	@Override
 	public Employee getEmpById(int id) {
-		return repositpry.findById(id).orElseThrow(() -> new RuntimeException("Employee not found"));
+		return repositpry.findById(id)
+				.orElseThrow(() -> new EmployeeNotFoundException("Employee not found with id: " + id));
 	}
 
 	public Employee updateEmp(EmpRequest request) {
 		Employee employee = repositpry.findById(request.getEmpId())
-				.orElseThrow(() -> new RuntimeException("Employee not found"));
+				.orElseThrow(() -> new EmployeeNotFoundException("Employee not found with id: " + request.getEmpId()));
 		employee.setEmpId(request.getEmpId());
 		employee.setEmpName(request.getEmpName());
 		employee.setEmpAdd(request.getEmpAdd());
