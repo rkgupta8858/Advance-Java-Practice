@@ -1,8 +1,10 @@
 package com.amazon.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import com.amazon.SpringBootCrud2Application;
 import com.amazon.entity.UserEntity;
 import com.amazon.exception.EmailAlreadyExistException;
 import com.amazon.exception.UserNotFoundException;
@@ -11,6 +13,7 @@ import com.amazon.request.UserRequest;
 
 @Service
 public class UserService {
+
 
 	@Autowired
 	private UserRepository repository;
@@ -43,5 +46,16 @@ public class UserService {
 		entity.setUserAddress(request.getUserAddress());
 
 		return repository.save(entity);
+	}
+
+	public void deleteUserService(UserRequest request) {
+		UserEntity entity = repository.findById(request.getUserId())
+				.orElseThrow(() -> new UserNotFoundException("User Not Found !!!"));
+		repository.delete(entity);
+
+	}
+
+	public List<UserEntity> showAllUser() {
+		return repository.findAll();
 	}
 }
