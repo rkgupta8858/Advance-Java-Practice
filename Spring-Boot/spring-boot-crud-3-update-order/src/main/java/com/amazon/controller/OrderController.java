@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.amazon.request.OrderRequest;
 import com.amazon.service.OrderService;
 
 @RestController
@@ -16,7 +17,7 @@ public class OrderController {
 	private OrderService orderService;
 
 	@PutMapping("/orders/{orderId}/status")
-	public ResponseEntity<String> updateOrderStatus(@PathVariable int orderId, @RequestBody String orderStatus) {
+	public ResponseEntity<String> updateOrderStatus(@PathVariable int orderId, @RequestBody OrderRequest orderStatus) {
 
 		orderService.updateStatus(orderId, orderStatus);
 		return ResponseEntity.ok("Order status updated successfully");
