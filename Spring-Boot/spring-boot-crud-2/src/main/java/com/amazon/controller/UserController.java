@@ -50,5 +50,4 @@ public class UserController {
 		List<UserEntity> showAllUser = service.showAllUser();
 		return ResponseEntity.ok(showAllUser);
 	}
-
 }
