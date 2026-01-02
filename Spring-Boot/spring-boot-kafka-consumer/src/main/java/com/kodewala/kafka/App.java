@@ -1,9 +1,7 @@
 package com.kodewala.kafka;
 
 import java.time.Duration;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.Properties;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -22,10 +20,10 @@ public class App {
 
 		KafkaConsumer consumer = new KafkaConsumer(properties);
 		
-		consumer.subscribe(Collections.singletonList("order1"));
+		consumer.subscribe(Collections.singletonList("order2"));
 
 		while (true) {
-			ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(1000));
+			ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
 			for (ConsumerRecord record : records) {
 				System.out.println("Message offset : " + record.offset());
 				System.out.println("Message topic : " + record.topic());

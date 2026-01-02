@@ -2,7 +2,7 @@ package com.kodewala.kafka;
 
 import java.util.Properties;
 
-import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.KafkaProducer; 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -17,7 +17,7 @@ public class App {
 		KafkaProducer<String, String> producer = new KafkaProducer<String, String>(properties);
 		
 		for (int i = 0; i < 5; i++) {
-			ProducerRecord<String, String> record = new ProducerRecord<String, String>("order1","ord1 : "+i,"Test orderr...\n");
+			ProducerRecord<String, String> record = new ProducerRecord<String, String>("order2","ord2 : "+i,"Test check...\n");
 			producer.send(record);
 		}
 		producer.close();
